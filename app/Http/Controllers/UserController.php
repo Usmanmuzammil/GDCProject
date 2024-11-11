@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mail\UserRegistration;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Mail;
+use Validator;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -49,7 +53,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $data = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'term_condition' => 'required',
+            ]);
+
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'term_condition' => $request->term_condition,
+            ]);
+
+            Mail::to($request->email)->send(new UserRegistration($request->name,$request->email));
+
+            return Back()->with(['success' => 'Thank to join our community! Please Check your email']);
+            
+        } catch (Exception $ex) {
+            
+        }
     }
 
     /**

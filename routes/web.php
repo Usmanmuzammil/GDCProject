@@ -37,6 +37,12 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/about','getAbout');
 });
 
+Route::controller(UserController::class)->group(function() {
+    Route::post('/user/store','store');
+});
+
+// admin Site
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::POST('/admin', [LoginController::class, 'adminLogin'])->name('admin.login');
 
@@ -80,5 +86,4 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     Route::get('/settings', [SettingController::class, 'settings']);
     Route::post('/update_setting', [SettingController::class, 'update_settings'])->name('update_setting');
 
-    // dfgsdfgdfg
 });

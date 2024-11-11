@@ -26,6 +26,40 @@
 </head>
 
 <body>
+    @if ($message = Session::get('success'))
+    <div id="successMessage"
+        class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 p-3 rounded-3 shadow-lg"
+        style="z-index: 9999; margin-top: 25px; max-width:100%; animation: slideIn 0.5s ease;">
+        <div class="d-flex align-items-center">
+            <i class="ri-check-double-line label-icon fs-3 me-2"></i>
+            <strong>{{ $message }}</strong>
+        </div>
+    </div>
+@endif
+
+<!-- Add CSS for animation -->
+<style>
+    @keyframes slideIn {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(0); }
+    }
+</style>
+
+<!-- Add JavaScript for auto-dismiss after 10 seconds -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+            // Set a timer to automatically hide the success message after 10 seconds
+            setTimeout(function () {
+                const alert = new bootstrap.Alert(successMessage);
+                alert.close(); // Close the alert programmatically
+            }, 10000); // 10 seconds (10000 milliseconds)
+        }
+    });
+</script>
+
+
     <!-- Topbar Start -->
     <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center py-4 px-xl-5">
@@ -173,9 +207,36 @@
                 <div class="row">
                     <div class="col-md-6 mb-5">
                         <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>
+                          <?php
+                            $setting = App\Models\Setting::where('key', 'address')->get()->first();
+                            if ($setting) {
+                                echo $setting->value;
+                            } else {
+                                echo 'Brand name not found';
+                            }
+                            ?>
+                            </p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>
+                            <?php
+                            $setting = App\Models\Setting::where('key', 'cell_number')->get()->first();
+                            if ($setting) {
+                                echo $setting->value;
+                            } else {
+                                echo 'Brand name not found';
+                            }
+                            ?>
+                        </p>
+                        <p><i class="fa fa-envelope mr-2"></i>
+                            <?php
+                            $setting = App\Models\Setting::where('key', 'email')->get()->first();
+                            if ($setting) {
+                                echo $setting->value;
+                            } else {
+                                echo 'Brand name not found';
+                            }
+                            ?>
+                        </p>
                         <div class="d-flex justify-content-start mt-4">
                             <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -197,12 +258,19 @@
             </div>
             <div class="col-lg-5 col-md-12 mb-5">
                 <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Newsletter</h5>
-                <p>Rebum labore lorem dolores kasd est, et ipsum amet et at kasd, ipsum sea tempor magna tempor. Accu kasd sed ea duo ipsum. Dolor duo eirmod sea justo no lorem est diam</p>
+                <p>Exciting news from   <?php
+                    $setting = App\Models\Setting::where('key', 'name')->get()->first();
+                    if ($setting) {
+                        echo $setting->value;
+                    } else {
+                        echo 'Brand name not found';
+                    }
+                    ?>! Join us for the upcoming Annual Fest, featuring fun activities, workshops, and performances ! Don’t miss out!</p>
                 <div class="w-100">
                     <div class="input-group">
                         <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
                         <div class="input-group-append">
-                            <button class="btn btn-primary px-4">Sign Up</button>
+                            <button class="btn btn-primary px-4">Connect Us!</button>
                         </div>
                     </div>
                 </div>
@@ -212,24 +280,23 @@
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">Domain Name</a>. All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a>
+                <p class="m-0 text-white">&copy; <a href="#">  <?php
+                    $setting = App\Models\Setting::where('key', 'name')->get()->first();
+                    if ($setting) {
+                        echo $setting->value;
+                    } else {
+                        echo 'Brand name not found';
+                    }
+                    ?></a>. All Rights Reserved. Designed & Developed by <a href="https://www.linkedin.com/in/usman-muzammil/" target="_blank">Usman Muzammil</a>
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
-                <ul class="nav d-inline-flex">
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Terms</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">FAQs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="#">Help</a>
-                    </li>
-                </ul>
+                {{-- <div class="d-flex justify-content-start mt-4"> --}}
+                    <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-square mr-2" href="https://www.linkedin.com/in/usman-muzammil/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                {{-- </div> --}}
             </div>
         </div>
     </div>
@@ -238,6 +305,7 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
 
 
     <!-- JavaScript Libraries -->

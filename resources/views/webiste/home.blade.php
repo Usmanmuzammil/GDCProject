@@ -234,41 +234,53 @@
         <div class="row align-items-center">
             <div class="col-lg-7 mb-5 mb-lg-0">
                 <div class="mb-4">
-                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Need Any Courses</h5>
-                    <h1 class="text-white">30% Off For New Students</h1>
+                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Success Path</h5>
+                    <h1 class="text-white">Your Pathway to a Successful Future – Connect with Us!</h1>
                 </div>
-                <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
-                    ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
-                    dolor</p>
+                
+                <p class="text-white">
+                    At   <?php
+                    $setting = App\Models\Setting::where('key', 'name')->get()->first();
+                    if ($setting) {
+                        echo $setting->value;
+                    } else {
+                        echo 'Brand name not found';
+                    }
+                    ?>, we believe your journey is just as important as your destination. Whether you're seeking guidance, exploring opportunities, or looking for the right resources, we're here to help. By connecting with us, you’re stepping onto a path where every challenge is an opportunity, and every success is celebrated. Your future starts here—let us guide you every step of the way!
+                </p>
+                
                 <ul class="list-inline text-white m-0">
-                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam</li>
-                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
-                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.</li>
+                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Expert guidance from faculty and mentors</li>
+                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Opportunities to grow inside and outside the classroom</li>
+                    <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>A vibrant community that supports your success</li>
                 </ul>
+                
             </div>
             <div class="col-lg-5">
                 <div class="card border-0">
                     <div class="card-header bg-light text-center p-4">
-                        <h1 class="m-0">Sign Up Now</h1>
+                        <h1 class="m-0">Connect Now!</h1>
                     </div>
                     <div class="card-body rounded-bottom bg-primary p-5">
-                        <form>
+                        <form action="{{url('/user/store')}}" method="post">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your name" required="required" />
+                                <input type="text" name="name" class="form-control border-0 p-4" placeholder="Your name" required="required" />
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Your email" required="required" />
+                                <input type="email" name="email" class="form-control border-0 p-4" placeholder="Your email" required="required" />
                             </div>
                             <div class="form-group">
-                                <select class="custom-select border-0 px-4" style="height: 47px;">
-                                    <option selected>Select a course</option>
-                                    <option value="1">Course 1</option>
-                                    <option value="2">Course 1</option>
-                                    <option value="3">Course 1</option>
-                                </select>
+                                <input type="number" name="phone" class="form-control border-0 p-4" placeholder="Phone Number" required="required" />
                             </div>
+                            <div class="form-group ">
+                                <label for="consent">I agree to the terms and conditions and consent to the processing of my data.</label>
+                                <input type="checkbox" name="term_condition" value="200" id="consent" name="consent" required>
+                            </div>
+                           
                             <div>
-                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Sign Up Now</button>
+                                {{-- <button class="btn btn-dark btn-block border-0 py-3" type="submit">Connected</button> --}}
+                                <input type="submit" value="Connected" class="btn btn-dark btn-block border-0 py-3">
                             </div>
                         </form>
                     </div>
