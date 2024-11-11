@@ -1,15 +1,12 @@
-
-<div class="dropdown d-inline-block">
-    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="ri-more-fill align-middle"></i>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-        <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#delete{{ $data->id }}" class="dropdown-item text-danger">
-            <i class="ri-delete-bin-line"></i> &nbsp; Delete
-        </a></li>
-    </ul>
+<div class="dropdown d-inline-block"><button class="btn btn-secondary btn-sm dropdown" type="button"
+    data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="ri-more-fill align-middle"></i>
+</button>
+<ul class="dropdown-menu dropdown-menu-end">
+    <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#delete{{ $data->id }}"
+            class="dropdown-item edit-item-btn"><i class="ri-delete-bin-line"></i> &nbsp; Delete</a></li>
+</ul>
 </div>
-
 
 
 <div class="modal fade" id="delete{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -24,7 +21,7 @@ aria-hidden="true">
             Do you want to Delete User , All his dependencies will also be Deleted...
         </div>
         <div class="modal-footer">
-            <form action="{{ route('banner.destroy', $data->id) }}" method="POST">
+            <form action="{{ route('teacher.destroy', $data->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -35,6 +32,4 @@ aria-hidden="true">
     </div>
 </div>
 </div>
-
-
 

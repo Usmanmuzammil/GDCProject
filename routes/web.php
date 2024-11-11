@@ -59,7 +59,7 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     // Teacher
     Route::get('teacher', [TeacherController::class,'index'])->name('teachers.index');
     Route::post('/teacher/store',[TeacherController::class,'store']);
-    Route::delete('/teacher/delete{id}',[TeacherController::class,'destroy']);
+    Route::delete('/teacher/delete{id}',[TeacherController::class,'destroy'])->name('teacher.destroy');
 
     // Desgination
     Route::get('desgination',[DesginationController::class,'index']);

@@ -28,14 +28,20 @@ class TeacherController extends Controller
             })
             ->editColumn('image', function ($row) {
                 return '<div class="image-container">
-                        <img src="'.$row->image.'" alt="Image"width="90px" >                
+                        <img src="'.$row->image.'" alt="Image" style="width: 100px; height: 100px;border-radius: 50%;">                
                 </div>';
             })
+            ->addColumn('status', function ($row) {
+                $statusText = ($row->status == 200) ? 'Enable' : 'Disable';
+                $btnClass = ($row->status == 200) ? 'success' : 'danger';
+                return '<span class="badge bg-' . $btnClass . '">' . $statusText . '</span>';
+            })
+            
                 ->addColumn('actions', function ($data){
-                    return view('admin.users.action_modal',compact('data'));
+                    return view('admin.teacher.action_modal',compact('data'));
 
                 })
-                ->rawColumns(['actions','image'])
+                ->rawColumns(['actions','image','status'])
                 ->make(true);
         }
 
