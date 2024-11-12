@@ -210,7 +210,7 @@
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                      <!-- Button to download PDF -->
-                        <a href="{{ $course->pdf_path }}" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2" download="{{ $course->course_title }}.pdf">
+                        <a href="{{ $course->pdf_path }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
                             Download Now
                         </a>
                                 </div>

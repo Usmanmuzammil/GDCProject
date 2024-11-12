@@ -44,7 +44,8 @@
         </div>
     </div>
     <!-- end page title -->
-    <div class="col-12">
+    <h5 class="text-danger md-3 py-3">*** Please add the three entity! ***</h5>
+    <div class="col-12 mt-1">
         <div class="card">
             <div class="card-header">
                 <div class="row">

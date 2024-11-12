@@ -394,11 +394,11 @@
                             </a>
                         </li>
 
-                        <li class="nav-item "  style="margin-top: -10px;">
+                        {{-- <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/user/') }}">
                                 <i class="ri-dashboard-2-fill"></i></i> <span>Users</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/about/') }}">
@@ -406,8 +406,14 @@
                             </a>
                         </li>
 
+                        <li class="nav-item "  style="margin-top: -10px;">
+                            <a class="nav-link " href="{{url('/admin/teacher')}}">
+                                <i class="ri-dashboard-2-fill"></i></i> <span>Teacher</span>
+                            </a>
+                        </li>
 
-                         <li class="nav-item" style="margin-top: -10px;">
+
+                         {{-- <li class="nav-item" style="margin-top: -10px;">
                             <a class="nav-link menu-link" href="#sidebarUsers" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUsers">
                                 <i class="ri-settings-3-line"></i> <span data-key="t-dashboards">Faculty</span>
                             </a>
@@ -418,12 +424,11 @@
                                     </li>
                                     {{-- <li class="nav-item">
                                         <a href="/admin/organization-user" class="nav-link" data-key="t-organizationuser">Organization</a>
-                                    </li> --}}
-
-
+                                    </li> 
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
+
                         <li class="nav-item" style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/settings') }}">
                                 <i class="ri-dashboard-2-fill"></i></i> <span>Settings</span>

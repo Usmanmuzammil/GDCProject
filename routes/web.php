@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DesginationController;
 use App\Http\Controllers\HomeController;
@@ -18,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/about',function() {
 //     return view('webiste.about');
 // });
-Route::get('/courses',function() {
-    return view('webiste.courses');
-});
+// Route::get('/courses',function() {
+//     return view('webiste.courses');
+// });
 // Route::get('/teachers',function() {
 //     return view('webiste.teachers');
 // });
@@ -35,11 +36,16 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/','home');
     Route::get('/teachers','getTeachers');
     Route::get('/about','getAbout');
+    Route::get('/courses','getCourses');
 });
 
 Route::controller(UserController::class)->group(function() {
     Route::post('/user/store','store');
 });
+
+// Route::controller(ContactController::class)->group(function () {
+//     Route::post('/cantact/store','store');
+// })
 
 // admin Site
 
