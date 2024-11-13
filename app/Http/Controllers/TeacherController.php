@@ -82,9 +82,9 @@ class TeacherController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'desgination' => $request->desgination,
-                'youtube_link' => $request->youtube_link,
-                'facebook_link' => $request->facebook_link,
-                'twitter_link' => $request->twitter_link,
+                'youtube_link' => 'https://www.youtube.com/embed/VIDEO_ID',
+                'facebook_link' => 'https://www.facebook.com/yourpage/posts/123456789',
+                'twitter_link' =>' https://www.twitter.com/yourpage/posts/123456789',
                 'image' => '/upload_image/'.$imageName,
             ]);
 

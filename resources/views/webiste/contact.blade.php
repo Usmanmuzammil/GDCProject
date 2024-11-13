@@ -31,21 +31,27 @@
                 <div class="col-lg-8">
                     <div class="contact-form bg-secondary rounded p-5">
                         <div id="success"></div>
-                        <form action="{{}}" id="contactForm" novalidate="novalidate">
+                        <form action="{{url('/user/store')}}" id="contactForm" method="POST">
+                            @csrf
                             <div class="control-group">
-                                <input type="text" class="form-control border-0 p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" name="name" class="form-control border-0 p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control border-0 p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" name="email" class="form-control border-0 p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="number" class="form-control border-0 p-4" id="subject" placeholder="Number" required="required" data-validation-required-message="Please enter a phone number" />
+                                <input type="number" name="phone" class="form-control border-0 p-4" id="subject" placeholder="Number" required="required" data-validation-required-message="Please enter a phone number" />
                                 <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="consent">I agree to the terms and conditions and consent to the processing of my data.</label>
+                                <input type="checkbox" name="term_condition" value="200" id="consent" name="consent" required>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                                {{-- <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Send Message</button> --}}
+                                <input type="submit" value="Connect Us!" class="btn btn-primary py-3 px-5">
                             </div>
                         </form>
                     </div>

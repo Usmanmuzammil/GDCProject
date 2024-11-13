@@ -385,12 +385,12 @@
 
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/banner/') }}">
-                                <i class="ri-dashboard-2-fill"></i></i> <span>Banner</span>
+                                <i class="ri-bookmark-2-fill"></i></i> <span>Banner</span>
                             </a>
                         </li>
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/course/') }}">
-                                <i class="ri-dashboard-2-fill"></i></i> <span>Course</span>
+                                <i class=" ri-file-paper-fill"></i></i> <span>Course</span>
                             </a>
                         </li>
 
@@ -402,13 +402,13 @@
 
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/about/') }}">
-                                <i class="ri-dashboard-2-fill"></i></i> <span>About</span>
+                                <i class=" ri-apps-2-fill"></i></i> <span>About</span>
                             </a>
                         </li>
 
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{url('/admin/teacher')}}">
-                                <i class="ri-dashboard-2-fill"></i></i> <span>Teacher</span>
+                                <i class=" ri-user-3-fill"></i></i> <span>Teacher</span>
                             </a>
                         </li>
 
@@ -431,7 +431,7 @@
 
                         <li class="nav-item" style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/settings') }}">
-                                <i class="ri-dashboard-2-fill"></i></i> <span>Settings</span>
+                                <i class=" ri-settings-5-line"></i></i> <span>Settings</span>
                             </a>
                         </li>
 

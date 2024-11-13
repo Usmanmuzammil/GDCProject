@@ -213,6 +213,19 @@
                         <a href="{{ $course->pdf_path }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
                             Download Now
                         </a>
+                         <!-- Static Review Stars Section -->
+                    <div class="mt-2" style="font-size: 10px;">
+                        <div class="star-rating">
+                            <!-- Static 5-Star Rating (All filled stars) -->
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i> 
+                            <!-- Optional: Add rating text -->
+                            <span class="ml-2">5 / 5</span>
+                        </div>
+                    </div>
                                 </div>
                             </div>
                         </div>
@@ -345,14 +358,35 @@
         <div class="row pb-3">
             <div class="col-lg-4 mb-4">
                 <div class="blog-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
-                    <a class="blog-overlay text-decoration-none" href="">
-                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
-                        <p class="text-primary m-0">Jan 01, 2050</p>
+                    <img class="img-fluid" src="{{ asset('upload_image/WhatsApp Image 2024-11-13 at 11.16.28 AM.jpeg') }}" alt="">
+                    <a  href="">
+                        {{-- <h5 class="text-white mb-3"></h5> --}}
+                        <a class="blog-overlay text-decoration-none text-white" target="_blank" href="https://drive.google.com/file/d/1_GdwAINT6IRZ74i8tRxj1o16BY0_T1q0/view?usp=drivesdk">Introduction of Computer Science Department Topic</a>
+                        <p class="text-primary m-0">Sep 10, 2024</p>
                     </a>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
+                <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ asset('upload_image/WhatsApp Image 2024-11-13 at 11.22.53 AM.jpeg') }}" alt="">
+                    <a  href="">
+                        {{-- <h5 class="text-white mb-3"></h5> --}}
+                        <a class="blog-overlay text-decoration-none text-white" target="_blank" href="https://drive.google.com/file/d/1_GdwAINT6IRZ74i8tRxj1o16BY0_T1q0/view?usp=drivesdk">Introduction of Abacus Topic</a>
+                        <p class="text-primary m-0">Oct 17, 2024</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ asset('upload_image/WhatsApp Image 2024-11-13 at 11.24.47 AM.jpeg') }}" alt="">
+                    <a  href="">
+                        {{-- <h5 class="text-white mb-3"></h5> --}}
+                        <a class="blog-overlay text-decoration-none text-white" target="_blank" href="https://drive.google.com/file/d/1_GdwAINT6IRZ74i8tRxj1o16BY0_T1q0/view?usp=drivesdk">Introduction of Artifical Intelligence Topic</a>
+                        <p class="text-primary m-0">Oct 17, 2024</p>
+                    </a>
+                </div>
+            </div>
+            {{-- <div class="col-lg-4 mb-4">
                 <div class="blog-item position-relative overflow-hidden rounded mb-2">
                     <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
                     <a class="blog-overlay text-decoration-none" href="">
@@ -369,7 +403,7 @@
                         <p class="text-primary m-0">Jan 01, 2050</p>
                     </a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

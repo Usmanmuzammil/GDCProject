@@ -50,9 +50,9 @@ class WebController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function getContact()
     {
-        //
+        return view('webiste.contact');
     }
 
     /**

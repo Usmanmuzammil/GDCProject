@@ -73,7 +73,7 @@ class UserController extends Controller
             return Back()->with(['success' => 'Thank to join our community! Please Check your email']);
             
         } catch (Exception $ex) {
-            
+            return back()->with(['success'=> $ex->getMessage()]);
         }
     }
 

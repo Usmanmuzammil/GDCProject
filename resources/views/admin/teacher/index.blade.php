@@ -104,6 +104,7 @@
                             <option value="">Choose the Desgination</option>
                             <option value="principal ">Principal</option>
                             <option value="assistantprofessor ">Assistant Professor</option>
+                            <option value="associateprofessor ">Associate Professor</option>
                             <option value="professor ">Professor</option>
                         </select>
                         @error('desgination')

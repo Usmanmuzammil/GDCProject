@@ -28,15 +28,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/blog',function() {
     return view('webiste.blog');
 });
-Route::get('/contact',function() {
-    return view('webiste.contact');
-});
+// Route::get('/contact',function() {
+//     return view('webiste.contact');
+// });
 
 Route::controller(WebController::class)->group(function () {
     Route::get('/','home');
     Route::get('/teachers','getTeachers');
     Route::get('/about','getAbout');
     Route::get('/courses','getCourses');
+    Route::get('/contact','getContact');
 });
 
 Route::controller(UserController::class)->group(function() {

@@ -13,20 +13,12 @@ class BannerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index(Request $request)
-    // {
-    //     if ($request->ajax()) {
-    //     $data = 
-    //     ->addColumn
-    //     }
-    // }
 
     
     public function index(Request $request)
     {
         if ($request->ajax()) {
             $data = Banner::select('*');
-
             return DataTables::of($data)
             ->editColumn('image', function ($row) {
                 return '<div class="image-container">
@@ -37,8 +29,6 @@ class BannerController extends Controller
                 return view('admin.banner.action_modal',compact('data'));
                 
             })
-            
-              
                 ->rawColumns(['image','action'])
                 ->make(true);
         }

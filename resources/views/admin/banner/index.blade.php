@@ -135,7 +135,7 @@
 
 
 @endsection()
-<script>
+{{-- <script>
     document.getElementById('description').addEventListener('input', function() {
         // Get the current length of the input
         var currentLength = this.value.length;
@@ -150,4 +150,4 @@
         } else {
             document.getElementById('charCount').style.color = 'gray';
         }
-    });
+    }); --}}
