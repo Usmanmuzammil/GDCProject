@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\validate;
@@ -31,43 +33,35 @@ class LoginController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function profile_update_view()
     {
-        //
+        return view('admin.settings.profile_update');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+    public function logout()  {
+        Auth::guard('admin')->logout();
+        return redirect('/login');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function update_profile(Request $request){
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        $data = $request->validate([
+            'email'   => 'email',
+            'password' => 'min:6'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $email = $request->email;
+        $password = $request->password;
+
+        if ($password == "") {
+            Admin::where('id', Auth::user()->id)->update(['email' => $email]);
+            Auth::guard('admin')->logout();
+        } else {
+            Admin::where('id', Auth::user()->id)->update(['email' => $email, 'password' => Hash::make($password)]);
+            Auth::guard('admin')->logout();
+        }
+
+        return redirect('/login')->with(['success'=> 'Your data is updated successfully. Now you have to Login!']);
+
     }
 }

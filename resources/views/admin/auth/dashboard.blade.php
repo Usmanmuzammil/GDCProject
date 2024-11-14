@@ -157,7 +157,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Teacher</p>
+                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Faculty</p>
                         </div>
                         <div class="flex-shrink-0">
                             <h5 class="text-success fs-14 mb-0">
@@ -214,7 +214,7 @@
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0 border-end-0">
                                     <h5 class="mb-1 text-success"><span class="counter-value" data-target="{{ \App\Models\Teacher::count() }}">0</span>%</h5>
-                                    <p class="text-muted mb-0">Teachers</p>
+                                    <p class="text-muted mb-0">Faculty</p>
                                 </div>
                             </div>
                             <!--end col-->

@@ -48,6 +48,10 @@
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 {{-- datatable links --}}
+<!-- Bootstrap CSS -->
+
+<!-- Bootstrap JS (needed for dropdown functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
@@ -259,45 +263,109 @@
                         </div>
                         {{-- notification --}}
 
-                        {{-- <div class="ms-1 header-item d-none d-sm-flex">
+                        <div class="ms-1 header-item d-none d-sm-flex">
                             <button type="button"
                                 class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
                                 <i class='bx bx-moon fs-22'></i>
                             </button>
-                        </div> --}}
+                        </div>
 
 
-
-                        <div class="dropdown ms-sm-3 header-item topbar-user">
-                            <button type="button" class="btn" id="page-header-user-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <div class="dropdown ms-sm-3 header-item topbar-user">
+                            <button class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
                                             {{ auth()->user()->name }}
                                         </span>
-                                        <span
-                                            class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
+                                        <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
                                     </span>
                                 </span>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <h6 class="dropdown-header">Welcome {{ auth()->user()->adminname }}!</h6>
-                                <a class="dropdown-item" href="/admin/profile_update/view">
-                                    <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
-                                    <span class="align-middle">Profile</span>
-                                </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="page-header-user-dropdown">
+                                <li><a class="dropdown-item" href="/admin/profile_update/view">
+                                    <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> Profile
+                                </a></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
+                                </a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                            </div>
+                            </ul>
+                        </div>
+                        
+                            
+                            {{-- Only desgin code  --}}
+                            {{-- <div class="dropdown ms-sm-3 header-item topbar-user">
+                                <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="d-flex align-items-center">
+                                        <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                        <span class="text-start ms-xl-2">
+                                            <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna Adame</span>
+                                            <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
+                                        </span>
+                                    </span>
+                                </button>
+                            
+                                <!-- Dropdown Menu -->
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <h6 class="dropdown-header">Welcome Anna!</h6>
+                            
+                                    <!-- Profile -->
+                                    <a class="dropdown-item" href="pages-profile.html">
+                                        <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Profile</span>
+                                    </a>
+                            
+                                    <!-- Messages -->
+                                    <a class="dropdown-item" href="apps-chat.html">
+                                        <i class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Messages</span>
+                                    </a>
+                            
+                                    <!-- Taskboard -->
+                                    <a class="dropdown-item" href="apps-tasks-kanban.html">
+                                        <i class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Taskboard</span>
+                                    </a>
+                            
+                                    <!-- Help -->
+                                    <a class="dropdown-item" href="pages-faqs.html">
+                                        <i class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Help</span>
+                                    </a>
+                            
+                                    <div class="dropdown-divider"></div>
+                            
+                                    <!-- Balance -->
+                                    <a class="dropdown-item" href="pages-profile.html">
+                                        <i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Balance: <b>$5971.67</b></span>
+                                    </a>
+                            
+                                    <!-- Settings (New) -->
+                                    <a class="dropdown-item" href="pages-profile-settings.html">
+                                        <span class="badge bg-soft-success text-success mt-1 float-end">New</span>
+                                        <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Settings</span>
+                                    </a>
+                            
+                                    <!-- Lock screen -->
+                                    <a class="dropdown-item" href="auth-lockscreen-basic.html">
+                                        <i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Lock screen</span>
+                                    </a>
+                            
+                                    <!-- Logout -->
+                                    <a class="dropdown-item" href="auth-logout-basic.html">
+                                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                                        <span class="align-middle">Logout</span>
+                                    </a>
+                                </div>
+                            </div> --}}
+                            
                         </div>
 
                     </div>
@@ -408,7 +476,7 @@
 
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{url('/admin/teacher')}}">
-                                <i class=" ri-user-3-fill"></i></i> <span>Teacher</span>
+                                <i class=" ri-user-3-fill"></i></i> <span>Faculty</span>
                             </a>
                         </li>
 

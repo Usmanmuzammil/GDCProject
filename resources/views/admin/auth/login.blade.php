@@ -29,6 +29,15 @@
 
 <body>
 
+    @if ($message = Session::get('success'))
+
+    <div id="successMessage"
+        class="alert alert-success alert-dismissible alert-solid alert-label-icon fade show position-fixed top-0 end-0"
+        style="z-index: 9999; margin-top: 25px;" role="alert">
+        <i class="ri-check-double-line label-icon"></i><strong>{{ $message }}</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="auth-page-wrapper pt-5">
         <!-- auth page bg -->
         <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
@@ -48,7 +57,7 @@
                     <div class="col-lg-12">
                         <div class="text-center mt-sm-5 mb-4 text-white-50">
                             <div>
-                                <a href="index.html" class="d-inline-block auth-logo">
+                                <a href="{{url('/login')}}" class="d-inline-block auth-logo">
                                    <h2><strong class="text-light">
                                      <?php
                                     $setting = App\Models\Setting::where('key', 'name')->get()->first();
