@@ -66,7 +66,7 @@
             <div class="col-lg-3">
                 <a href="" class="text-decoration-none">
                     <div style="display: flex; align-items: center;">
-                        <img src="{{ asset('webisteassets/img/GDC-Logo.png') }}" alt="" width="100px;">&nbsp;
+                        <img src="{{ asset('webisteassets/img/GDC-Logo.png') }}" alt="" width="70px;">&nbsp;
                         <h4 class="ml-2">
                             <?php
                             $setting = App\Models\Setting::where('key', 'name')->get()->first();
