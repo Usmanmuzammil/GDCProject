@@ -12,6 +12,7 @@ class Teacher extends Model
         'name',
         'email',
         'desgination',
+        'description',
         'image',
         'facebook_link',
         'youtube_link',

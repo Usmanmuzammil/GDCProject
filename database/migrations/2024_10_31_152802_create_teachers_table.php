@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('desgination');
             $table->string('image');
+            $table->longText('description');
             $table->longText('facebook_link');
             $table->longText('youtube_link');
             $table->longText('twitter_link');

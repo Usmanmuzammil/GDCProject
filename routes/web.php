@@ -99,6 +99,9 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
         Route::delete('/blog/destroy/{id}','destroy')->name('blog.destroy');
     });
 
+    // User Details
+    Route::get('/teacher/details/{id}',[UserController::class,'teacherDetails']);
+
     // Setting Routes
     Route::get('/settings', [SettingController::class, 'settings']);
     Route::post('/update_setting', [SettingController::class, 'update_settings'])->name('update_setting');

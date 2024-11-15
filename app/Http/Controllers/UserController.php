@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Mail\UserRegistration;
+use App\Models\Teacher;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -80,9 +81,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function teacherDetails(string $id)
     {
-        //
+        $teacher = Teacher::findOrFail($id);
+        return view('webiste.teacher_details',compact('teacher'));
     }
 
     /**
