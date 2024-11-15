@@ -15,14 +15,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Faculty</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Blog</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Do you want to Delete Faculty , All this dependencies will also be Deleted...
+                Do you want to Delete Blog , All this dependencies will also be Deleted...
             </div>
             <div class="modal-footer">
-                <form action="{{ route('teacher.destroy', $data->id) }}" method="POST">
+                <form action="{{ route('blog.destroy', $data->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -34,4 +34,3 @@
         </div>
     </div>
     </div>
-

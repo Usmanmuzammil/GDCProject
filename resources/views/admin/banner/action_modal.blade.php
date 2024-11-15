@@ -14,18 +14,19 @@ aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Delete Banner</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Do you want to Delete User , All his dependencies will also be Deleted...
+            Do you want to Delete Banner , All this dependencies will also be Deleted...
         </div>
         <div class="modal-footer">
-            <form action="{{ route('teacher.destroy', $data->id) }}" method="POST">
+            <form action="{{ route('banner.destroy', $data->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-danger">Submit</button>
+                {{-- <button type="submit" class="btn btn-danger">Submit</button> --}}
+                <input type="submit" value="Submit" class="btn btn-danger">
             </form>
         </div>
 

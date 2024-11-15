@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DesginationController;
@@ -88,7 +89,16 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
       Route::controller(CourseController::class)->group(function () {
         Route::get('/course','index')->name('course.index');
         Route::post('/course/store','store');
+        Route::delete('/course/destroy/{id}','destroy')->name('course.destroy');
     });
+
+    // Blog Controller 
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/blog','index')->name('blog.index');
+        Route::post('/blog/store','store');
+        Route::delete('/blog/destroy/{id}','destroy')->name('blog.destroy');
+    });
+
     // Setting Routes
     Route::get('/settings', [SettingController::class, 'settings']);
     Route::post('/update_setting', [SettingController::class, 'update_settings'])->name('update_setting');

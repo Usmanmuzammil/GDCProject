@@ -30,7 +30,7 @@ class CourseController extends Controller
                     </div>';
                 })
                 ->addColumn('action', function ($data) {
-                    return view('admin.banner.action_modal', compact('data'));
+                    return view('admin.course.action_modal', compact('data'));
                 })
                 ->rawColumns(['pdf', 'action','PDFImage']) // Make sure 'pdf' is processed as HTML
                 ->make(true);
@@ -112,8 +112,15 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        // Find the course by ID
+        $course = course::findOrFail($id);
+
+        // Delete the course (also handle any associated files if necessary)
+        $course->delete();
+
+        // Optionally, you can return a JSON response for AJAX calls
+        return back()->with(['success' => 'Course deleted successfully']);
     }
 }
