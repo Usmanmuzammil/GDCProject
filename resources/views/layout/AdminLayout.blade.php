@@ -486,6 +486,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item "  style="margin-top: -10px;">
+                            <a class="nav-link " href="{{url('/admin/attendence')}}">
+                                <i class=" ri-user-3-fill"></i></i> <span>Attendence</span>
+                            </a>
+                        </li>
+
 
                          {{-- <li class="nav-item" style="margin-top: -10px;">
                             <a class="nav-link menu-link" href="#sidebarUsers" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarUsers">

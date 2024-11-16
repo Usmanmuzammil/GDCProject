@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaladd">
-                            Add Banner
+                            Add Banner!
                         </button>
                     </div>
                 </div>

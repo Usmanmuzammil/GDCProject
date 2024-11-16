@@ -66,7 +66,7 @@
             <div class="col-lg-3">
                 <a href="" class="text-decoration-none">
                     <div style="display: flex; align-items: center;">
-                        <img src="{{ asset('webisteassets/img/GDC-Logo.png') }}" alt="" width="70px;">&nbsp;
+                        <img src="{{ asset('webisteassets/img/GDC-Logo.png') }}" alt="" width="50px;">&nbsp;
                         <h4 class="ml-2">
                             <?php
                             $setting = App\Models\Setting::where('key', 'name')->get()->first();
@@ -144,7 +144,7 @@
     <div class="container-fluid">
         <div class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
-                <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none" data-toggle="collapse" href="#navbar-vertical" style="height: 67px; padding: 0 30px;">
+                <a class="d-flex align-items-center justify-content-between bg-secondary w-100 text-decoration-none" data-toggle="collapse" href="#" style="height: 67px; padding: 0 30px;">
                     <h5 class="text-primary m-0"><i class="fa fa-book-open mr-2"></i>Our Visions</h5>
                     {{-- <i class="fa fa-angle-down text-primary"></i> --}}
                 </a>
@@ -168,7 +168,6 @@
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="/courses" class="text-decoration-none d-block d-lg-none">
-                        {{-- <h1 class="m-0"><span class="text-primary">E</span>COURSES</h1> --}}
                         <img src="{{ asset('webisteassets/img/GDC-Logo.png') }}" alt="">
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -176,23 +175,26 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav py-0">
-                            <a href="/" class="nav-item nav-link active">Home</a>
-                            <a href="about" class="nav-item nav-link">About</a>
-                            <a href="courses" class="nav-item nav-link">Courses</a>
-                            <a href="teachers" class="nav-item nav-link">Teachers</a>
+                            <a href="/" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                            <a href="about" class="nav-item nav-link {{ Request::is('about') ? 'active' : '' }}">About</a>
+                            <a href="courses" class="nav-item nav-link {{ Request::is('courses') ? 'active' : '' }}">Courses</a>
+                            <a href="attendence" class="nav-item nav-link {{ Request::is('attendences') ? 'active' : '' }}">Attendence</a>
+
+                            <a href="teachers" class="nav-item nav-link {{ Request::is('teachers') ? 'active' : '' }}">Faculty</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Blog</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Event</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="blog" class="dropdown-item">Blog List</a>
-                                    {{-- <a href="single" class="dropdown-item">Blog Detail</a> --}}
+                                    <a href="blog" class="dropdown-item {{ Request::is('blog') ? 'active' : '' }}">Event List</a>
+                                    {{-- <a href="single" class="dropdown-item {{ Request::is('single') ? 'active' : '' }}">Blog Detail</a> --}}
                                 </div>
                             </div>
-                            <a href="contact" class="nav-item nav-link">Contact</a>
+                            {{-- <a href="contact" class="nav-item nav-link {{ Request::is('contact') ? 'active' : '' }}">Contact</a> --}}
                         </div>
                         <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="{{url('/contact')}}">Connect Now!</a>
                     </div>
                 </nav>
             </div>
+            
         </div>
     </div>
     <!-- Navbar End -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\AttendenceSheet;
 use App\Models\Banner;
 use App\Models\course;
 use App\Models\Teacher;
@@ -58,9 +59,10 @@ class WebController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function getAttendence()
     {
-        //
+        $attendences = AttendenceSheet::latest()->get();
+        return view('webiste.attendence',compact('attendences'));
     }
 
     /**

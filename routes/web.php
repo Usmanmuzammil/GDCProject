@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AttendenceController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -39,6 +40,7 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/about','getAbout');
     Route::get('/courses','getCourses');
     Route::get('/contact','getContact');
+    Route::get('/attendence','getAttendence');
 });
 
 Route::controller(UserController::class)->group(function() {
@@ -97,6 +99,13 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
         Route::get('/blog','index')->name('blog.index');
         Route::post('/blog/store','store');
         Route::delete('/blog/destroy/{id}','destroy')->name('blog.destroy');
+    });
+
+    // Attendence Controller 
+    Route::controller(AttendenceController::class)->group(function () {
+    Route::get('/attendence','index')->name('attendence.index');
+        Route::post('/attendence/store','store');
+        Route::delete('attendence/destroy/{id}','destroy')->name('attendencesheet.destroy');
     });
 
     // User Details

@@ -77,7 +77,7 @@
                                                 <div class="input-group-append">
                                                     <button type="submit" class="btn btn-primary">
                                                         {{-- <i class='mdi mdi-artstation fa-1x'></i> --}}
-                                                        Update
+                                                        Update!
                                                     </button>
                                                 </div>
                                             </div>

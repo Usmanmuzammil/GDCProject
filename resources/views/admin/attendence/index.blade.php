@@ -36,7 +36,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                        <li class="breadcrumb-item active">Blogs</li>
+                        <li class="breadcrumb-item active">Attendence Sheet</li>
                     </ol>
                 </div>
 
@@ -44,29 +44,29 @@
         </div>
     </div>
     <!-- end page title -->
-    <div class="col-12">
+    {{-- <h5 class="text-danger md-3 py-3">*** Please add the three entity! ***</h5> --}}
+    <div class="col-12 mt-1">
         <div class="card">
             <div class="card-header">
                 <div class="row">
                     <div class="col-9">
-                        <h4>Blog</h4>
+                        <h4>Attendence Sheet</h4>
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaladd">
-                            Add Blog!
+                            Add Attendence Sheet!
                         </button>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-bordered" id="blog_table">
+                <table class="table table-bordered" id="attendence_table">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Title</th>
-                            <th>link</th>
+                            <th>Department</th>
                             <th>Image</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -85,16 +85,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('/admin/blog/store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/admin/attendence/store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="title">Title</label>
                         <input type="text" name="title" required class="form-control" placeholder="Enter the title">
                         @error('title')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="link">Link</label>
-                        <input type="text" name="link" class="form-control" placeholder="https://link.com/">
-                        @error('link')
+                        <label for="department">Department</label>
+                        <input type="text" name="department" id="department" required class="form-control" placeholder="Enter the department" maxlength="100">
+                        @error('department')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                         <label for="image">Image</label>
@@ -114,17 +114,16 @@
 
     <script type="text/javascript">
         $(function() {
-            var table = $('#blog_table').DataTable({
+            var table = $('#attendence_table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('blog.index') }}",
+                ajax: "{{ route('attendence.index') }}",
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },
-                    { data: 'link', name: 'link' },
+                    { data: 'department', name: 'department' },
                     { data: 'image', name: 'image' },
-                    { data: 'status', name: 'status' },
-                    { data: 'action', name: 'action', orderable: false, searchable: true }
+                    { data: 'action' , name: 'action',orderable: false, searchable: true }
                 ]
             });
         });
@@ -132,3 +131,19 @@
 
 
 @endsection()
+{{-- <script>
+    document.getElementById('description').addEventListener('input', function() {
+        // Get the current length of the input
+        var currentLength = this.value.length;
+        var maxLength = 100;
+
+        // Update the character count
+        document.getElementById('charCount').textContent = currentLength + '/' + maxLength;
+
+        // Optional: Change color of the text when limit is near (e.g., 90 or more)
+        if (currentLength >= 90) {
+            document.getElementById('charCount').style.color = 'red';
+        } else {
+            document.getElementById('charCount').style.color = 'gray';
+        }
+    }); --}}
