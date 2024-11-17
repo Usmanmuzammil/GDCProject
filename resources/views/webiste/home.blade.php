@@ -84,7 +84,7 @@
 
 
 <!-- About Start -->
-<div class="container-fluid py-5">
+<div class="container-fluid py-5" style="margin-top: -100px;">
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-lg-5">
@@ -92,8 +92,8 @@
             </div>
             <div class="col-lg-7">
                 <div class="text-left mb-4">
-                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
-                    <h1>{{$about->title}}</h1>
+                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">{{$about->title}}</h5>
+                    {{-- <h1>{{$about->title}}</h1> --}}
                 </div>
                 <p>{!! $about->description !!}</p>
                 {{-- <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a> --}}
@@ -105,7 +105,7 @@
 
 
 <!-- Category Start -->
-<div class="container-fluid py-5">
+{{-- <div class="container-fluid py-5">
     <div class="container pt-5 pb-3">
         <div class="text-center mb-5">
             <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Subjects</h5>
@@ -186,7 +186,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Category Start -->
 
     <!-- Courses Start -->
@@ -210,9 +210,13 @@
                             <div class="border-top mt-4 pt-4">
                                 <div class="d-flex justify-content-between">
                                      <!-- Button to download PDF -->
-                        <a href="{{ $course->pdf_path }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
-                            Download Now
-                        </a>
+                   
+                                     <a href="{{ asset( $course->pdf_file) }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
+                                        Download PDF
+                                    </a>
+                                    
+                                     
+
                          <!-- Static Review Stars Section -->
                     <div class="mt-2" style="font-size: 10px;">
                         <div class="star-rating">

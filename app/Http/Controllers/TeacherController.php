@@ -27,9 +27,11 @@ class TeacherController extends Controller
                 </td>';
             })
             ->editColumn('image', function ($row) {
-                return '<div class="image-container">
-                        <img src="'.$row->image.'" alt="Image" style="width: 100px; height: 100px;border-radius: 50%;">                
-                </div>';
+                // return '<div class="image-container">
+                //         <img src="'.$row->image.'" alt="Image" style="width: 100px; height: 100px;border-radius: 50%;">                
+                // </div>';
+                return '<img class="img-thumbnail rounded-circle avatar-xl" alt="200x200" src="' . $row->image . '" />';
+
             })
             ->addColumn('status', function ($row) {
                 $statusText = ($row->status == 200) ? 'Enable' : 'Disable';

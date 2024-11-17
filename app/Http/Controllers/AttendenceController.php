@@ -20,9 +20,10 @@ class AttendenceController extends Controller
     
             return DataTables::of($data)
                 ->editColumn('image', function ($row) {
-                    return '<div class="image-container">
-                            <img src="'.$row->image.'" alt="Image" width="60px" >                
-                    </div>';
+                    // return '<div class="image-container">
+                    //         <img src="'.$row->image.'" alt="Image" width="60px" >                
+                    // </div>';
+                    return '<img class="img-thumbnail" alt="200x200" width="100" height="100px" src="'.$row->image.'">';
                 })
                 ->addColumn('action', function ($data) {
                     return view('admin.attendence.action_modal', compact('data'));
@@ -34,17 +35,6 @@ class AttendenceController extends Controller
         return view('admin.attendence.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         try {

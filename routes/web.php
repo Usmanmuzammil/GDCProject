@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DesginationController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SettingController;
@@ -27,9 +28,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/teachers',function() {
 //     return view('webiste.teachers');
 // });
-Route::get('/blog',function() {
-    return view('webiste.blog');
-});
+// Route::get('/blog',function() {
+//     return view('webiste.blog');
+// });
 // Route::get('/contact',function() {
 //     return view('webiste.contact');
 // });
@@ -41,7 +42,11 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/courses','getCourses');
     Route::get('/contact','getContact');
     Route::get('/attendence','getAttendence');
+    Route::get('/event','getEvent');
 });
+
+Route::get('/event/details/{id}', [EventController::class, 'show'])->name('event.details');
+
 
 Route::controller(UserController::class)->group(function() {
     Route::post('/user/store','store');
@@ -106,6 +111,14 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     Route::get('/attendence','index')->name('attendence.index');
         Route::post('/attendence/store','store');
         Route::delete('attendence/destroy/{id}','destroy')->name('attendencesheet.destroy');
+    });
+
+    // Event Controller 
+    Route::controller(EventController::class)->group(function() {
+        Route::get('/event','index')->name('event.index');
+        Route::get('/event/create','create');
+        Route::post('/event/store','store')->name('admin.event.store');
+        Route::delete('event/destroy/{id}','destroy')->name('event.destroy');
     });
 
     // User Details

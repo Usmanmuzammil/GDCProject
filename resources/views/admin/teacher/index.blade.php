@@ -36,7 +36,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                        <li class="breadcrumb-item active">Teacher</li>
+                        <li class="breadcrumb-item active">Faculty</li>
                     </ol>
                 </div>
 
@@ -49,17 +49,17 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-9">
-                        <h4>Teacher</h4>
+                        <h4>Faculty</h4>
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaladd">
-                            Add Teacher!
+                            Add Faculty!
                         </button>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-bordered" id="teacher_table">
+                <table class="table table-bordered" id="Faculty_table">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -86,7 +86,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('/admin/teacher/store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/admin/Faculty/store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="name">Name</label>
                         <input type="text" name="name" required class="form-control" placeholder="Enter the name">
@@ -142,7 +142,7 @@
 
     <script type="text/javascript">
         $(function() {
-            var table = $('#teacher_table').DataTable({
+            var table = $('#Faculty_table').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('teachers.index') }}",

@@ -28,9 +28,10 @@ class BlogController extends Controller
                     return '<span class="badge bg-' . $btnClass . '">' . $statusText . '</span>';
                 })
                 ->editColumn('image', function ($row) {
-                    return '<div class="image-container">
-                            <img src="'.$row->image.'" alt="Image" width="60px" >                
-                    </div>';
+                    // return '<div class="image-container">
+                    //         <img src="'.$row->image.'" alt="Image" width="60px" >                
+                    // </div>';
+                    return '<img class="img-thumbnail rounded-circle avatar-xl" alt="200x200" src="' . $row->image . '" />';
                 })
                 ->addColumn('action', function ($data) {
                     return view('admin.blog.action_modal', compact('data'));

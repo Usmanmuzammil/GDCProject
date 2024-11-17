@@ -184,7 +184,7 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Event</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="blog" class="dropdown-item {{ Request::is('blog') ? 'active' : '' }}">Event List</a>
+                                    <a href="event" class="dropdown-item {{ Request::is('event') ? 'active' : '' }}">Event List</a>
                                     {{-- <a href="single" class="dropdown-item {{ Request::is('single') ? 'active' : '' }}">Blog Detail</a> --}}
                                 </div>
                             </div>

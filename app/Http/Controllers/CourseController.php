@@ -25,9 +25,10 @@ class CourseController extends Controller
                     return '<a href="'.$row->pdf.'" target="_blank">View PDF</a>';
                 })
                 ->editColumn('PDFImage', function ($row) {
-                    return '<div class="image-container">
-                            <img src="'.$row->pdf_image.'" alt="Image" width="90px" >                
-                    </div>';
+                    // return '<div class="image-container">
+                    //         <img src="'.$row->pdf_image.'" alt="Image" width="90px" >                
+                    // </div>';
+                    return '<img class="img-thumbnail" alt="200x200" width="100" src="'.$row->pdf_image.'">';
                 })
                 ->addColumn('action', function ($data) {
                     return view('admin.course.action_modal', compact('data'));

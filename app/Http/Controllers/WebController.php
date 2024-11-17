@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\AttendenceSheet;
 use App\Models\Banner;
 use App\Models\course;
+use App\Models\Event;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -68,9 +69,10 @@ class WebController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function getEvent()
     {
-        //
+        $events = Event::with('Media')->get();
+        return view('webiste.blog',compact('events'));
     }
 
     /**

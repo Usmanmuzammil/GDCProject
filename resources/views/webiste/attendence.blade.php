@@ -35,9 +35,10 @@
                             <img class="img-fluid" src="{{ $attendence->image }}" alt="{{ $attendence->name }}" style="height: 300px; width: 350px;">
                         </a>
                     </div>
-                    <div class="bg-secondary p-4">
+                    <div class="bg-secondary p-2">
                         <h5>{{ $attendence->title }}</h5>
                         <p class="m-0">{{ $attendence->department }}</p>
+                        <p class="m-0">{{ $attendence->created_at }}</p>
                     </div>
                 </div>
             </div>
