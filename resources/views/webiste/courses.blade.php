@@ -19,7 +19,7 @@
 
 
     <!-- Category Start -->
-    <div class="container-fluid py-5">
+    {{-- <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-5">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Subjects</h5>
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Category Start -->
 
 

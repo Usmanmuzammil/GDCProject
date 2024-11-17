@@ -86,7 +86,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('/admin/Faculty/store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/admin/teacher/store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <label for="name">Name</label>
                         <input type="text" name="name" required class="form-control" placeholder="Enter the name">
@@ -98,29 +98,36 @@
                         @error('email')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
+                        <label for="description">Description</label>
+                        {{-- <input type="text" name="description" required class="form-control" placeholder="Enter the xyz@gmail.com"> --}}
+                        <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Enter the description"></textarea>
+                        @error('description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                         <label for="desgination">Desgination</label>
                         {{-- <input type="text" name="desgination_id" required class="form-control" placeholder="Enter the desgination"> --}}
                         <select name="desgination" id="" class="form-control" required>
                             <option value="">Choose the Desgination</option>
-                            <option value="principal ">Principal</option>
-                            <option value="assistantprofessor ">Assistant Professor</option>
-                            <option value="associateprofessor ">Associate Professor</option>
-                            <option value="professor ">Professor</option>
+                            <option value="Principal ">Principal</option>
+                            <option value="Chief Director">Chief Director</option>
+                            <option value="Assistant Professor ">Assistant Professor</option>
+                            <option value="Associate Professor ">Associate Professor</option>
+                            <option value="Professor ">Professor</option>
                         </select>
                         @error('desgination')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="facebooklink">Facebook Link</label>
+                        <label for="facebooklink">Facebook Link <span class="text-danger">(Optional)</span></label>
                         <input type="text" name="facebook_link" class="form-control" placeholder="https://www.facebook.com/profile.php?id=10">
                         @error('facebooklink')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="youtubelink">Youtube Link</label>
+                        <label for="youtubelink">Youtube Link<span class="text-danger">(Optional)</span></label>
                         <input type="text" name="youtube_link" class="form-control" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                         @error('youtubelink')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="twitterlink">Twitter Link</label>
+                        <label for="twitterlink">Twitter Link<span class="text-danger">(Optional)</span></label>
                         <input type="text" name="twitter_link" class="form-control" placeholder="https://twitter.com/username">
                         @error('twitterlink')
                             <span class="text-danger">{{ $message }}</span>

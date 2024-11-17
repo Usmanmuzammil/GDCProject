@@ -29,6 +29,7 @@
                 <div class="text-left mb-4">
                     <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Faculty Details</h5>
                     <h1>{{$teacher->name}}</h1>
+                    <p>{{$teacher->desgination}}</p>
                 </div>
                 <p>{!! $teacher->description !!}</p>
                 {{-- <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a> --}}

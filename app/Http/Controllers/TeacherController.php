@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mail\FacultyRegistration;
 use App\Models\Teacher;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class TeacherController extends Controller
@@ -68,6 +70,7 @@ class TeacherController extends Controller
                 'name' => 'required',
                 'email' => 'required',
                 'desgination' => 'required',
+                'description' => 'required',
                 'youtube_link' => 'nullable',
                 'facebook_link' => 'nullable',
                 'twitter_link' => 'nullable',
@@ -84,13 +87,16 @@ class TeacherController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'desgination' => $request->desgination,
+                'description' => $request->description,
                 'youtube_link' => 'https://www.youtube.com/embed/VIDEO_ID',
                 'facebook_link' => 'https://www.facebook.com/yourpage/posts/123456789',
                 'twitter_link' =>' https://www.twitter.com/yourpage/posts/123456789',
                 'image' => '/upload_image/'.$imageName,
             ]);
 
-            return back()->with(['success' => 'Teacher Added Successfully!']);
+            Mail::to($request->email)->send(new FacultyRegistration($request->name,$request->email,$request->desgination));
+
+            return back()->with(['success' => 'Faculty Added Successfully!']);
 
         } catch (Exception $ex) {
             return back()->with(['danger' => $ex->getMessage()]);

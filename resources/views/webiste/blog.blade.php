@@ -7,11 +7,11 @@
     <div class="container-fluid page-header" style="margin-bottom: 90px;">
         <div class="container">
             <div class="d-flex flex-column justify-content-center" style="min-height: 300px">
-                <h3 class="display-4 text-white text-uppercase">Event</h3>
+                <h3 class="display-4 text-white text-uppercase">Events</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Event</p>
+                    <p class="m-0 text-uppercase">Events</p>
                 </div>
             </div>
         </div>
@@ -23,14 +23,17 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="row pb-3">
                         @foreach ($events as $event)
-                        <div class="col-lg-6 mb-4" style="height: 400px; width: 400px; overflow: hidden;">
+                        <div class="col-lg-4 mb-4" style="height: 400px; width: 400px; overflow: hidden;">
                             
                             <div class="blog-item position-relative overflow-hidden rounded mb-2" style="height: 100%; width: 100%;">
                                 <!-- Check if the event has any associated media -->
+
                                 @if ($event->media->isNotEmpty())
+                                <p><a href="/event/details/{{ $event->id }}" class="text-decoration-none text-primary"></a></p>
+
                                     <img class="img-fluid" src="{{ $event->media->first()->path }}" alt="" style="object-fit: cover; height: 100%; width: 100%;">
                                 @else
                                     <img class="img-fluid" src="{{ asset('default-image.jpg') }}" alt="Default Image" style="object-fit: cover; height: 100%; width: 100%;">
@@ -39,7 +42,7 @@
                                     <h5 class="text-white mb-3">
                                         {{ \Illuminate\Support\Str::words($event->description, 40, '...') }}
                                     </h5>
-                                    <p class="text-primary m-0">{{ \Carbon\Carbon::parse($event->created_at)->format('M d, Y') }}</p>
+                                    {{-- <p class="text-primary m-0">{{ \Carbon\Carbon::parse($event->created_at)->format('M d, Y') }}</p> --}}
                                 </a>
                             </div>
                         </div>
@@ -51,7 +54,7 @@
                 </div>
               
 
-                <div class="col-lg-4 mt-5 mt-lg-0">
+                {{-- <div class="col-lg-4 mt-5 mt-lg-0">
                     <!-- Author Bio -->
                     <div class="d-flex flex-column text-center bg-dark rounded mb-5 py-5 px-4">
                         <img src="{{ asset('webisteassets/img/user.jpg') }}" class="img-fluid rounded-circle mx-auto mb-3" style="width: 100px;">
@@ -138,7 +141,7 @@
                             <a href="" class="btn btn-outline-primary m-1">Consulting</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

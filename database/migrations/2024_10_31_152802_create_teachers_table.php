@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('desgination');
             $table->string('image');
             $table->longText('description');
-            $table->longText('facebook_link');
-            $table->longText('youtube_link');
-            $table->longText('twitter_link');
+            $table->longText('facebook_link')->nullable();
+            $table->longText('youtube_link')->nullable();
+            $table->longText('twitter_link')->nullable();
             $table->integer('status')->default(200); // 200 Active 403 Inactive
             $table->timestamps();
         });

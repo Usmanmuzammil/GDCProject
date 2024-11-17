@@ -379,17 +379,10 @@
                 <!-- Dark Logo-->
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <h2 class="text-light mt-2">
+                        <h4 class="text-light mt-2">
 
-                             <?php
-                            $setting = App\Models\Setting::where('key', 'name')->get()->first();
-                            if ($setting) {
-                                echo $setting->value;
-                            } else {
-                                echo 'Brand name not found';
-                            }
-                            ?>
-                            </h2>
+                           GDC & PGC
+                            </h4>
                     </span>
                     <span class="logo-lg">
                         <h2 class="text-light mt-2">
@@ -407,16 +400,9 @@
                 <!-- Light Logo-->
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
-                        <h2 class="text-light mt-2">
-                            <?php
-                            $setting = App\Models\Setting::where('key', 'name')->get()->first();
-                            if ($setting) {
-                                echo $setting->value;
-                            } else {
-                                echo 'Brand name not found';
-                            }
-                            ?>
-                            </h2>
+                        <h4 class="text-light mt-2">
+                         GDC & PGC
+                            </h4>
                     </span>
                     <span class="logo-lg">
                         <h2 class="text-light mt-2">

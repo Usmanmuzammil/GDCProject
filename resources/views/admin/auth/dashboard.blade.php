@@ -61,13 +61,22 @@
             </div><!-- end card -->
         </div><!-- end col --> --}}
 
+        <h2 class="text-primary">Welcome Admin !!</h2>
+        <p class="text-primary"> <?php
+            $setting = App\Models\Setting::where('key', 'name')->get()->first();
+            if ($setting) {
+                echo $setting->value;
+            } else {
+                echo 'Brand name not found';
+            }
+            ?></p>
         <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-animate">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 overflow-hidden">
-                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">User</p>
+                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Canditate</p>
                         </div>
                         <div class="flex-shrink-0">
                             <h5 class="text-success fs-14 mb-0">

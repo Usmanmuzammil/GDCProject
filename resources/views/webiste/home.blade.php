@@ -69,8 +69,8 @@
                     <img class="position-relative w-100" src="{{ $bannerItem->image }}" style="height: 500px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
-                            <h1 class="text-white text-uppercase mb-md-3">{{ $bannerItem->tagline }}</h1>
-                            <h6 class="display-4 text-white ">{{ $bannerItem->description }}</h6>
+                            <h1 class="text-primary text-uppercase mb-md-3">{{ $bannerItem->tagline }}</h1>
+                            <h5 class="display-5 text-white ">{{ $bannerItem->description }}</h5>
                             <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
                         </div>
                     </div>
@@ -189,8 +189,49 @@
 </div> --}}
 <!-- Category Start -->
 
+<!-- Interesting Site Start -->
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Dedication</h5>
+            <h1>See our dedicated video</h1>
+        </div>
+        <div class="row ">
+            <div class="col-lg-6">
+                <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fgovt.degree%2Fvideos%2F1066971594861231%2F&show_text=false&width=476&t=0" width="530" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fgovt.degree%2Fvideos%2F1267225804420818%2F&show_text=false&width=476&t=0" width="476" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+            </div>
+            {{-- <div class="col-lg-4 mb-4">
+                <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
+                    <a class="blog-overlay text-decoration-none" href="">
+                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
+                        <p class="text-primary m-0">Jan 01, 2050</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="blog-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ asset('webisteassets/img/blog-3.jpg') }}" alt="">
+                    <a class="blog-overlay text-decoration-none" href="">
+                        <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
+                        <p class="text-primary m-0">Jan 01, 2050</p>
+                    </a>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+
     <!-- Courses Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" style="margin-top: -40px;">
         <div class="container py-5">
             <div class="text-center mb-5">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Popular Courses</h5>
@@ -310,24 +351,6 @@
 
 
 <!-- College Director Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="text-left mb-4">
-                    <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
-                    <h1>{{$about->title}}</h1>
-                </div>
-                <p>{!! $about->description !!}</p>
-            </div>
-            <div class="col-lg-5">
-                <img class="img-fluid rounded mb-4 mb-lg-0" src="{{ $about->image }}" alt="">
-               
-                {{-- <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a> --}}
-            </div>
-        </div>
-    </div>
-</div>
 <!-- About End -->
 
 
@@ -345,7 +368,7 @@
                 <div class="team-item rounded overflow-hidden mb-2">
                     <div class="team-img position-relative">
                         <img class="img-fluid" src="{{ $teacherItem->image }}" alt="{{ $teacherItem->name }}" style="width: 300px; height: 250px;">
-                        <div class="team-social">
+                        {{-- <div class="team-social">
                             <a class="btn btn-outline-light btn-square mx-1" href="{{$teacherItem->twitter_link}}" target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
@@ -355,7 +378,7 @@
                             <a class="btn btn-outline-light btn-square mx-1" href="{{$teacherItem->youtube_link}}" target="_blank">
                                 <i class="fab fa-youtube"></i>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="bg-secondary p-4">
                         <p class="m-0">{{ $teacherItem->desgination }}</p>
