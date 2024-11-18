@@ -178,7 +178,7 @@
                             <a href="/" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
                             <a href="about" class="nav-item nav-link {{ Request::is('about') ? 'active' : '' }}">About</a>
                             <a href="courses" class="nav-item nav-link {{ Request::is('courses') ? 'active' : '' }}">Courses</a>
-                            <a href="attendence" class="nav-item nav-link {{ Request::is('attendences') ? 'active' : '' }}">Attendence</a>
+                            <a href="attendence" class="nav-item nav-link {{ Request::is('attendence') ? 'active' : '' }}">Attendence</a>
 
                             <a href="teachers" class="nav-item nav-link {{ Request::is('teachers') ? 'active' : '' }}">Faculty</a>
                             <div class="nav-item dropdown">

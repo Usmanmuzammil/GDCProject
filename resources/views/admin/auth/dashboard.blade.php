@@ -190,8 +190,8 @@
             </div><!-- end card -->
             
         </div><!-- end col -->
-        <div class="row">
-            <div class="col-xl-8">
+        <div class="row" style="width: 100%;">
+            <div class="col-xl-14">
                 <div class="card">
                     <div class="card-header border-0 align-items-center d-flex">
                         <h4 class="card-title mb-0 flex-grow-1">Content Introduction</h4>

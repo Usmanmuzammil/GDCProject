@@ -70,7 +70,7 @@
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h1 class="text-primary text-uppercase mb-md-3">{{ $bannerItem->tagline }}</h1>
-                            <h5 class="display-5 text-white ">{{ $bannerItem->description }}</h5>
+                            <h5 class="display-4 text-white ">{{ $bannerItem->description }}</h5>
                             <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
                         </div>
                     </div>
