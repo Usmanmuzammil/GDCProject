@@ -113,6 +113,7 @@
                             <option value="Assistant Professor ">Assistant Professor</option>
                             <option value="Associate Professor ">Associate Professor</option>
                             <option value="Professor ">Professor</option>
+                            <option value="Librarian ">Librarian</option>
                         </select>
                         @error('desgination')
                             <span class="text-danger">{{ $message }}</span>

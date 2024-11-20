@@ -10,6 +10,7 @@ use App\Http\Controllers\DesginationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QueryController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
@@ -41,7 +42,9 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/about','getAbout');
     Route::get('/courses','getCourses');
     Route::get('/contact','getContact');
-    Route::get('/attendence','getAttendence');
+    Route::get('/
+    
+    ','getAttendence');
     Route::get('/event','getEvent');
 });
 
@@ -52,9 +55,9 @@ Route::controller(UserController::class)->group(function() {
     Route::post('/user/store','store');
 });
 
-// Route::controller(ContactController::class)->group(function () {
-//     Route::post('/cantact/store','store');
-// })
+Route::controller(QueryController::class)->group(function () {
+    Route::post('/query/store','store');
+});
 
 // admin Site
 
