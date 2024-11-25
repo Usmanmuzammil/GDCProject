@@ -18,6 +18,11 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
+    public function facultyIndex()
+    {
+        return view('faculty.auth.login');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -33,14 +38,39 @@ class LoginController extends Controller
 
     }
 
+
+    public function facultyLogin(Request $request)
+    {
+        $credentials = $request->only(['email','password']);
+        if (Auth::guard('faculty')->attempt($request->only(['email','password']),$request->get('remember'))) {
+            return redirect()->intended('/faculty/dashboard');
+        }
+        return back()->withInput($request->only('email','remember'))->withErrors(['email' => 'These credentials do not match our records!']);
+    }
+
     public function profile_update_view()
     {
         return view('admin.settings.profile_update');
     }
 
+    public function faculty_profile_update_view()
+    {
+        return view('faculty.settings.profile_update_view');
+    }
+
+    public function faculty_profile_update_edit()
+    {
+        return view('faculty.settings.profile_edit');
+    }
+
     public function logout()  {
         Auth::guard('admin')->logout();
         return redirect('/login');
+    }
+
+    public function facultyLogout()  {
+        Auth::guard(name: 'faculty')->logout();
+        return redirect('/faculty/login');
     }
 
     public function update_profile(Request $request){

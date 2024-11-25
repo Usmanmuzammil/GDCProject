@@ -132,3 +132,22 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     Route::post('/update_setting', [SettingController::class, 'update_settings'])->name('update_setting');
 
 });
+
+
+
+// faculty site
+
+Route::get('/faculty/login', [LoginController::class, 'facultyIndex'])->name('faculty');
+Route::POST('/faculty/login', [LoginController::class, 'facultyLogin'])->name('faculty.login');
+
+
+Route::prefix('/faculty')->middleware('auth:faculty')->group(function() {
+    Route::POST('/facultylogout',[LoginController::class,'facultyLogout'])->name(name: 'faculty.logout');
+
+    Route::get('/dashboard',[HomeController::class,'facultyIndex'])->name('dashboard.page');
+    Route::get('/profile_update/view', [LoginController::class, 'faculty_profile_update_view']);
+    Route::get('/profile/edit', [LoginController::class, 'faculty_profile_update_edit']);
+    Route::post('/update_profile',[LoginController::class , 'update_profile'])->name('update_profile');
+
+
+});

@@ -14,6 +14,11 @@ class HomeController extends Controller
         return view('admin.auth.dashboard');
     }
 
+
+    public function facultyIndex()
+    {
+        return view('faculty.auth.dashboard');
+    }
     /**
      * Show the form for creating a new resource.
      */
