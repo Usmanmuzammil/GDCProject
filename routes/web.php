@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DesginationController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\Faculty\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QueryController;
@@ -144,10 +145,18 @@ Route::POST('/faculty/login', [LoginController::class, 'facultyLogin'])->name('f
 Route::prefix('/faculty')->middleware('auth:faculty')->group(function() {
     Route::POST('/facultylogout',[LoginController::class,'facultyLogout'])->name(name: 'faculty.logout');
 
-    Route::get('/dashboard',[HomeController::class,'facultyIndex'])->name('dashboard.page');
+    // Route::get('/dashboard',[HomeController::class,'facultyIndex'])->name('dashboard.page');
     Route::get('/profile_update/view', [LoginController::class, 'faculty_profile_update_view']);
     Route::get('/profile/edit', [LoginController::class, 'faculty_profile_update_edit']);
     Route::post('/update_profile',[LoginController::class , 'update_profile'])->name('update_profile');
 
+
+    // Course Controller
+        // Route::controller(BookController::class)->group(function () {
+        // Route::get('/book','index')->name('book.index');
+        // Route::post('/book/store','store');
+        // Route::delete('/book/destroy/{id}','destroy')->name('book.destroy');
+        // });
+    
 
 });

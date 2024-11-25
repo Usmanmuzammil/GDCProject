@@ -43,7 +43,7 @@ class LoginController extends Controller
     {
         $credentials = $request->only(['email','password']);
         if (Auth::guard('faculty')->attempt($request->only(['email','password']),$request->get('remember'))) {
-            return redirect()->intended('/faculty/dashboard');
+            return redirect()->intended('/profile_update/view');
         }
         return back()->withInput($request->only('email','remember'))->withErrors(['email' => 'These credentials do not match our records!']);
     }

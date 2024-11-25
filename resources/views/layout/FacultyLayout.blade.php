@@ -222,7 +222,7 @@
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                                 id="page-header-notifications-dropdown" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <i class='bx bx-bell fs-22'></i>
+                                {{-- <i class='bx bx-bell fs-22'></i> --}}
                                 <span class="visually-hidden">unread messages</span></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
@@ -431,16 +431,22 @@
                     </div>
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="nav-item mt-4">
-                            <a class="nav-link " href="{{ url('faculty/dashboard') }}">
-                                <i class="ri-dashboard-2-fill"></i></i> <span>Dashboard</span>
+                            <a class="nav-link " href="{{ url('/faculty/profile_update/view') }}">
+                                <i class="ri-dashboard-2-fill"></i></i> <span>Profile</span>
                             </a>
                         </li>
 
                         
-                        <li class="nav-item "  style="margin-top: -10px;">
+                        {{-- <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/faculty/profile_update/view') }}">
                                 <i class="ri-bookmark-2-fill"></i></i> <span>Profile View</span>
                             </a>
+                        </li> --}}
+                        {{-- <li class="nav-item "  style="margin-top: -10px;">
+                            <a class="nav-link " href="{{ url('/faculty/book/') }}">
+                                <i class=" ri-file-paper-fill"></i></i> <span>Books</span>
+                            </a>
+                        </li> --}}
                         {{-- </li>
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/course/') }}">
