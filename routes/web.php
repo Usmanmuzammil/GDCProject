@@ -43,9 +43,7 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/about','getAbout');
     Route::get('/courses','getCourses');
     Route::get('/contact','getContact');
-    Route::get('/
-    
-    ','getAttendence');
+    Route::get('/attendence','getAttendence');
     Route::get('/event','getEvent');
 });
 
@@ -129,7 +127,7 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
     Route::get('/teacher/details/{id}',[UserController::class,'teacherDetails']);
 
     // Setting Routes
-    Route::get('/settings', [SettingController::class, 'settings']);
+    Route::get('/settings', [SettingController::class, 'settinsegs']);
     Route::post('/update_setting', [SettingController::class, 'update_settings'])->name('update_setting');
 
 });
