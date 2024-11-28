@@ -53,39 +53,36 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $data = Validator::make($request->all(),[
-                'course_title' => 'required',
-                'pdf' => 'required',
-                'pdf_image'=>'required',
-            ]);
-
-            if ($request->hasFile('pdf')) {
-                $pdf = $request->file('pdf');
-                $pdfName = time().'.'.$pdf->getClientOriginalExtension();
-                $path = public_path('/upload_pdfs');
-                $pdf->move($path, $pdfName);
-            }
-            
-            if ($request->hasFile('pdf_image')) {
-                $pdf_image = $request->file('pdf_image');
-                $pdf_imageName = time().'.'.$pdf_image->getClientOriginalExtension();
-                $path = public_path('/upload_images');
-                $pdf_image->move($path, $pdf_imageName);
-            }
-            course::create([
-                'course_title' => $request->course_title,
-                'pdf' => '/upload_pdfs/'.$pdfName,
-                'pdf_image' => '/upload_images/'.$pdf_imageName,
-            ]);
-
-            return back()->with(['success' => 'Course Added Successfully!']);
-
-        } catch (Exception $ex) {
-            return back()->with(['danger' => $ex->getMessage()]);
+        // Validate the request
+        $validatedData = $request->validate([
+            'course_title' => 'required|string',
+            'pdf_image' => 'required|image|max:10240', // 10MB max image size
+            'pdf' => 'required|mimes:pdf|max:100000', // 100MB max PDF size
+        ]);
+    
+        // Handle the PDF Image upload
+        if ($request->hasFile('pdf_image')) {
+            $pdfImage = $request->file('pdf_image');
+            $pdfImagePath = $pdfImage->store('course_images', 'public');
         }
+    
+        // Handle the Course PDF upload
+        if ($request->hasFile('pdf')) {
+            $pdf = $request->file('pdf');
+            $pdfPath = $pdf->store('course_pdfs', 'public');
+        }
+    
+        // Create a new course record (or handle the logic for course creation)
+        $course = new Course();
+        $course->title = $validatedData['course_title'];
+        $course->pdf_image = $pdfImagePath ?? null;
+        $course->pdf = $pdfPath;
+        $course->save();
+    
+        // Return a response indicating success
+        return response()->json(['message' => 'Course uploaded successfully!'], 200);
     }
-
+    
     /**
      * Display the specified resource.
      */
