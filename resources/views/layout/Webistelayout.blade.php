@@ -158,7 +158,7 @@
                                 <a href="" class="dropdown-item">jQuery</a>
                             </div>
                         </div> --}}
-                        <a href="" class="nav-item nav-link">Faculty Site</a>
+                        <a href="{{url('/faculty/sign-up')}}" class="nav-item nav-link">Faculty Site</a>
                         <a href="" class="nav-item nav-link">Student Site</a>
                         {{-- <a href="" class="nav-item nav-link">Research</a> --}}
                         {{-- <a href="" class="nav-item nav-link">SEO</a> --}}

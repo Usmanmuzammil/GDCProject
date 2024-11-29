@@ -23,6 +23,11 @@ class LoginController extends Controller
         return view('faculty.auth.login');
     }
 
+    public function facultySignUp()
+    {
+        return view('faculty.auth.signup');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

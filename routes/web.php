@@ -136,6 +136,10 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
 
 // faculty site
 
+
+Route::get('/faculty/sign-up', [LoginController::class, 'facultySignUp'])->name('faculty.signup');
+
+
 Route::get('/faculty/login', [LoginController::class, 'facultyIndex'])->name('faculty');
 Route::POST('/faculty/login', [LoginController::class, 'facultyLogin'])->name('faculty.login');
 
