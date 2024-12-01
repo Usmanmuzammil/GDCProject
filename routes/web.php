@@ -45,10 +45,15 @@ Route::controller(WebController::class)->group(function () {
     Route::get('/contact','getContact');
     Route::get('/attendence','getAttendence');
     Route::get('/event','getEvent');
+    
 });
+
+// routes/web.php
+Route::get('/download/{courseId}', [CourseController::class, 'downloadPdf'])->name('download.pdf');
 
 Route::get('/event/details/{id}', [EventController::class, 'show'])->name('event.details');
 
+Route::get('/teacher/details/{id}',[UserController::class,'teacherDetails']);
 
 Route::controller(UserController::class)->group(function() {
     Route::post('/user/store','store');
@@ -123,7 +128,7 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
         Route::delete('event/destroy/{id}','destroy')->name('event.destroy');
     });
 
-    // User Details
+    // Teacher Details
     Route::get('/teacher/details/{id}',[UserController::class,'teacherDetails']);
 
     // Setting Routes
@@ -139,12 +144,15 @@ Route::prefix('/admin')->middleware('auth:admin')->group(function() {
 
 Route::get('/faculty/sign-up', [LoginController::class, 'facultySignUp'])->name('faculty.signup');
 
+Route::post('/faculty/signup', [LoginController::class, 'submitFacultySignup'])->name('signup.submit');
+
 
 Route::get('/faculty/login', [LoginController::class, 'facultyIndex'])->name('faculty');
 Route::POST('/faculty/login', [LoginController::class, 'facultyLogin'])->name('faculty.login');
 
 
-Route::prefix('/faculty')->middleware('auth:faculty')->group(function() {
+
+Route::prefix('/faculty')->middleware(['auth:faculty'])->group(function() {
     Route::POST('/facultylogout',[LoginController::class,'facultyLogout'])->name(name: 'faculty.logout');
 
     // Route::get('/dashboard',[HomeController::class,'facultyIndex'])->name('dashboard.page');

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Teacher extends Authenticatable
 {
 
-    protected $guards = 'faculty';
+    protected $guards = 'faculties';
     protected $table = 'teachers';
 
     protected $fillable = [
@@ -17,6 +17,7 @@ class Teacher extends Authenticatable
         'password',
         'desgination',
         'description',
+        'phone',
         'image',
         'facebook_link',
         'youtube_link',

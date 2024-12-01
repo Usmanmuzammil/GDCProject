@@ -234,8 +234,8 @@
     <div class="container-fluid py-5" style="margin-top: -40px;">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Popular Courses</h5>
-                <h1>Download Now To Learn</h1>
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Popular Books</h5>
+                <h1>Download Now To Learn More</h1>
             </div>
             <div class="row">
                 @foreach ($courses as $course)
@@ -252,10 +252,13 @@
                                 <div class="d-flex justify-content-between">
                                      <!-- Button to download PDF -->
                    
-                                     <a href="{{ asset( $course->pdf_file) }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
+                                     {{-- <a href="{{ asset( $course->pdf_file) }}" class="btn btn-primary py-md-2 px-md-4" download="{{ $course->course_title }}.pdf">
                                         Download PDF
-                                    </a>
-                                    
+                                    </a> --}}
+                                    <a href="{{ route('download.pdf', ['courseId' => $course->id]) }}" target="_blank" class="btn btn-primary py-md-2 px-md-4">
+                                        View PDF
+                                      </a>
+                                      
                                      
 
                          <!-- Static Review Stars Section -->
@@ -383,7 +386,7 @@
                     <div class="bg-secondary p-4">
                         <p class="m-0">{{ $teacherItem->desgination }}</p>
                         <h5>{{ $teacherItem->name }}</h5>
-                        <a href="/admin/teacher/details/{{$teacherItem->id}}">See Details</a>
+                        <a href="/teacher/details/{{$teacherItem->id}}">See Details</a>
 
                     </div>
                 </div>

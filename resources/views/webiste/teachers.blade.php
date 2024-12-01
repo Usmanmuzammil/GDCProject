@@ -46,7 +46,7 @@
                     <div class="bg-secondary p-4">
                         <h5>{{ $teacherItem->name }}</h5>
                         <p class="m-0">{{ $teacherItem->desgination }}</p>
-                        <a href="/admin/teacher/details/{{$teacherItem->id}}">See Details</a>
+                        <a href="/teacher/details/{{$teacherItem->id}}">See Details</a>
                     </div>
                 </div>
             </div>

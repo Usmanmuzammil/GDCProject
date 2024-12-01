@@ -1,5 +1,5 @@
 @extends('layout.Webistelayout')
-@section('title','user')
+@section('title','Faculty')
 @section('content')
  <!-- Header Start -->
  <div class="container-fluid page-header" style="margin-bottom: 90px;">

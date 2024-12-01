@@ -36,7 +36,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                        <li class="breadcrumb-item active">Course</li>
+                        <li class="breadcrumb-item active">Book</li>
                     </ol>
                 </div>
 
@@ -49,11 +49,11 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-9">
-                        <h4>Course</h4>
+                        <h4>Book</h4>
                     </div>
                     <div class="col-3 text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaladd">
-                            Add Course!
+                            Add Book!
                         </button>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="modal-body">
                     <form action="{{ url('/admin/course/store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <label for="course_title">Course Title</label>
+                        <label for="course_title">Book Title</label>
                         <input type="text" name="course_title" required class="form-control" placeholder="Enter the course_title">
                         @error('course_title')
                             <span class="text-danger">{{ $message }}</span>
@@ -97,7 +97,7 @@
                         @error('pdf')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                        <label for="pdf">Upload Course PDF</label>
+                        <label for="pdf">Upload Book PDF</label>
                         <input type="file" name="pdf" required class="form-control">
                         @error('pdf')
                             <span class="text-danger">{{ $message }}</span>

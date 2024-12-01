@@ -15,11 +15,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Course</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Do you want to Delete Course , All this dependencies will also be Deleted...
+                Do you want to Delete Book , All this dependencies will also be Deleted...
             </div>
             <div class="modal-footer">
                 <form action="{{ route('course.destroy', $data->id) }}" method="POST">

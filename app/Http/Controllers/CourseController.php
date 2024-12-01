@@ -74,13 +74,16 @@ class CourseController extends Controller
     
         // Create a new course record (or handle the logic for course creation)
         $course = new Course();
-        $course->title = $validatedData['course_title'];
-        $course->pdf_image = $pdfImagePath ?? null;
-        $course->pdf = $pdfPath;
+        $course->course_title = $validatedData['course_title'];
+    
+        // Ensure file paths are properly stored
+        $course->pdf_image = isset($pdfImagePath) ? '/storage/' . $pdfImagePath : null;
+        $course->pdf = isset($pdfPath) ? '/storage/' . $pdfPath : null;
+    
         $course->save();
     
         // Return a response indicating success
-        return response()->json(['message' => 'Course uploaded successfully!'], 200);
+        return redirect()->back()->with('message', 'Course uploaded successfully!');
     }
     
     /**
@@ -91,12 +94,30 @@ class CourseController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function downloadPdf($courseId)
     {
-        //
+        // Find the course by its ID
+        $course = Course::find($courseId);
+    
+        if ($course) {
+            // Correct the path to the file (from /storage/ to the full path in storage)
+            $pdfPath = storage_path('app/public/course_pdfs/' . basename($course->pdf));
+    
+            if (file_exists($pdfPath)) {
+                // Increment the download count
+                $course->download_count++;
+                $course->save();
+    
+                // Serve the PDF file to the user
+                return response()->file($pdfPath);
+            } else {
+                // If file doesn't exist, return a 404 error
+                return abort(404, 'File not found');
+            }
+        }
+    
+        // Return 404 if course not found
+        return abort(404);
     }
 
     /**
@@ -119,6 +140,6 @@ class CourseController extends Controller
         $course->delete();
 
         // Optionally, you can return a JSON response for AJAX calls
-        return back()->with(['success' => 'Course deleted successfully']);
+        return back()->with(['success' => 'Book deleted successfully']);
     }
 }

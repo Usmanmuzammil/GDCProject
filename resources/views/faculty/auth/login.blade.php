@@ -104,7 +104,8 @@
                                             @enderror
                                         </div>
                                         <div class="mt-4">
-                                            <button class="btn btn-primary w-100" type="submit">Sign In</button>
+                                            {{-- <button  type="submit">Sign In</button> --}}
+                                            <input type="submit" class="btn btn-primary w-100" value="Sign In">
                                         </div>
                                     </form>
                                 </div>

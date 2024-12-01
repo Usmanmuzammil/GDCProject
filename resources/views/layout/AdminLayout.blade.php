@@ -444,7 +444,7 @@
                         </li>
                         <li class="nav-item "  style="margin-top: -10px;">
                             <a class="nav-link " href="{{ url('/admin/course/') }}">
-                                <i class=" ri-file-paper-fill"></i></i> <span>Course</span>
+                                <i class=" ri-file-paper-fill"></i></i> <span>Books</span>
                             </a>
                         </li>
 

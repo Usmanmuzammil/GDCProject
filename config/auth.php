@@ -46,7 +46,7 @@ return [
         ],
         'faculty' => [
             'driver' => 'session',
-            'provider' => 'facultys'
+            'provider' => 'faculties'
         ]
     ],
 
@@ -76,9 +76,9 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Admin::class),
         ],
-        'facultys' => [
+        'faculties' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL',App\Models\Teacher::class),
+            'model' => App\Models\Teacher::class,
         ]
 
         // 'users' => [
