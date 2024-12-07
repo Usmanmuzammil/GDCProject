@@ -465,4 +465,20 @@
 </div>
 <!-- Blog End -->
 
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-5">
+            <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Our Location</h5>
+            <h1>Come for Any Query</h1>
+        </div>
+        <div class="row pb-3">
+          
+            <div class="col-lg-12 mb-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.1700642628058!2d68.36112611645704!3d25.360991592604915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c704314a8406d%3A0x7e95b7f61d6adefc!2sGovernment%20Degree%20college!5e0!3m2!1sen!2s!4v1733601980442!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
